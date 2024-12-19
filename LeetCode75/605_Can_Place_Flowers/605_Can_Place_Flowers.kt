@@ -22,7 +22,6 @@ class Solution {
     }
 }
 
-// 使用例
 fun main() {
     val solution = Solution()
     println(solution.canPlaceFlowers(intArrayOf(1, 0, 0, 0, 1), 1)) // true
