@@ -22,8 +22,6 @@ function isValid(s: string): boolean {
 };
 
 /**
-・mapで、keyが閉じ括弧で、valueが開き括弧で、変数宣言
-・
 
 <わからないこと>
     - valueが等しい場合、keyでの比較ができるのかわからない
