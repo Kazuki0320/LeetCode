@@ -15,9 +15,6 @@ function longestCommonPrefix(strs: string[]): string {
     return prefix;
 }
 
-const strs = ["flower", "flow"];
-console.log(longestCommonPrefix(strs));
-
 /**
 【処理の言語化】
 1. 配列の要素が0の場合にはreturn
