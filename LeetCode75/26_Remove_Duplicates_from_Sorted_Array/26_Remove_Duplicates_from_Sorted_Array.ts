@@ -12,6 +12,5 @@ function removeDuplicates(nums: number[]):number {
     return k
 }
 
-// const nums = [1,1,2,2]
-const nums = [0,0,1,1,1,2,2,3,3,4]
+const nums = [1,1,2,2]
 console.log(removeDuplicates(nums))
