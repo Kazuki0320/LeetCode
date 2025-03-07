@@ -1,4 +1,4 @@
-function  changeStr(s: string):string {
+function  sanitizeString(s: string):string {
     return s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
 }
 
@@ -14,12 +14,12 @@ function isPalindrome(s: string): boolean {
         const currentFirst = s.charAt(start)
         const currentLast = s.charAt(last)
 
-        if (!changeStr(currentFirst)) {
+        if (!sanitizeString(currentFirst)) {
             start++    
         } else if (!changeStr(currentLast)) {
             last--
         } else {
-            if (changeStr(currentFirst) != changeStr(currentLast)) {
+            if (sanitizeString(currentFirst) != changeStr(currentLast)) {
                 return false
             }
             start++
