@@ -1,23 +1,31 @@
-function isPalindrome(s: string): boolean {
-    s = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
-    const len = s.length
+function  changeStr(s: string):string {
+    return s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
+}
 
-    for (let i = 0; i < len / 2; i++) {
-        if (s[i] !== s[len - 1 - i]) {
-            return false
+function isPalindrome(s: string): boolean {
+    if (!s) {
+        return true
+    }
+
+    let start = 0
+    let last = s.length - 1
+
+    while (start <= last) {
+        const currentFirst = s.charAt(start)
+        const currentLast = s.charAt(last)
+
+        if (!changeStr(currentFirst)) {
+            start++    
+        } else if (!changeStr(currentLast)) {
+            last--
+        } else {
+            if (changeStr(currentFirst) != changeStr(currentLast)) {
+                return false
+            }
+            start++
+            last--
         }
     }
     return true
 }
 
-// const s = "A man, a plan, a canal: Panama"
-// const s = "race a car"
-const s = ''
-console.log(isPalindrome(s))
-
-// let str = "A man, a plan"
-// let change = str.replace(/[^a-zA-Z0-9]/g, '')
-// console.log(change)
-
-// let str1 = "Samurai"
-// console.log(str1.toLowerCase())
