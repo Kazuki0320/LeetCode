@@ -1,41 +1,34 @@
-function isIsomorphic(s: string, t: string): boolean {
-    if (s.length !== t.length) return false;
+function isIsmorphic(s: string, t: string): boolean {
+    if (s.length !== t.length) return false
 
-    const mapST = new Map<string, string>(); // s → t のマッピング
-    const mapTS = new Map<string, string>(); // t → s の逆マッピング
+    const mapST = new Map<string, string>()
+    const mapTS = new Map<string, string>()
 
     for (let i = 0; i < s.length; i++) {
-        const charS = s[i];
-        const charT = t[i];
+        const charS = s[i]
+        const charT = t[i]
 
-        // s → t のマッピングがすでにある場合
+        // s→tのマッピングが既にある場合
         if (mapST.has(charS)) {
-            if (mapST.get(charS) !== charT) return false; // 一貫性がない場合
+            if (mapST.get(charS) !== charT) return false
         } else {
-            mapST.set(charS, charT);
+            mapST.set(charS, charT)
         }
-
-        // t → s のマッピングがすでにある場合
+        console.log(mapST)
+        // t→sのマッピングが既にある場合
         if (mapTS.has(charT)) {
-            if (mapTS.get(charT) !== charS) return false; // 一貫性がない場合
+            if (mapTS.get(charT) !== charS) return false
         } else {
-            mapTS.set(charT, charS);
+            mapTS.set(charT, charS)
         }
+        console.log(mapTS)
     }
-
-    return true;
+    
+    return true
 }
 
-console.log(isIsomorphic("egg", "add")); // true
+const str1 = "foo"
+const str2 = "bar"
 
+console.log(isIsmorphic(str1, str2))
 
-/**
- * 2つの Map を用意
- *  - s の文字 → t の文字 のマッピング
- *  - t の文字 → s の文字 のマッピング（逆方向のチェック）
- * s の文字を 1文字ずつ t の文字に対応させる
- *  - 既にマッピングされているか確認
- *  - 矛盾がある場合は false
- * すべての文字で一意なマッピングが可能なら true
-
- */
