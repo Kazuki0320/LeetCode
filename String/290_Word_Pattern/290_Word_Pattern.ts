@@ -1,25 +1,28 @@
-function wordPattern(pattern: string, s: string): boolean {
-    const words = s.split(" ");
+function wordpattern(pattern: string, s: string): boolean {
+    const words = s.split(" ")
+    const patternLength = pattern.length
 
-    if (pattern.length !== words.length) {
-        return false;
+    if (patternLength !== words.length) return false
+
+    const charToWords = new Map<string, string>()
+    const wordToChar = new Map<string, string>()
+
+    for (let i = 0; i < patternLength; i++) {
+        const char = pattern[i]
+        const word = words[i]
+
+        // 登録されている場合の処理
+        if (charToWords.has(char) && charToWords.get(char) !== word) return false
+        if (wordToChar.has(word) && wordToChar.get(word) !== char) return false
+
+        // 登録されていない場合の処理
+        charToWords.set(char, word)
+        wordToChar.set(word, char) 
     }
 
-    const charToWord = new Map<string, string>();
-    const wordToChar = new Map<string, string>();
-
-    for (let i = 0; i < pattern.length; i++) {
-        const char = pattern[i];
-        const word = words[i];
-
-        // すでに登録されているのに違う対応になっていたら false
-        if (charToWord.has(char) && charToWord.get(char) !== word) return false;
-        if (wordToChar.has(word) && wordToChar.get(word) !== char) return false;
-
-        // pattern の文字と s の単語を紐付ける
-        charToWord.set(char, word);
-        wordToChar.set(word, char);
-    }
-
-    return true;
+    return true
 }
+
+const pattern = "aba"
+const s = "dog cat dog"
+console.log(wordpattern(pattern, s));
