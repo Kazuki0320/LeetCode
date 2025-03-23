@@ -1,20 +1,14 @@
 function findTheDifference(s: string, t: string): string {
-    const tChars = new Map<string, boolean>()
+let code = 0;
 
-    for (let i = 0; i < t.length; i++) {
-        const tChar = t[i]
-        const sChar = s[i]
-        tChars.set(tChar, false)
+for (let i = 0; i < s.length; i++) {
+    code ^= s.charCodeAt(i); // s の各文字の文字コードと XOR
+}
 
-        if (tChars.get(sChar) === false) {
-            tChars.set(sChar, true)
-        }
-    }
+for (let i = 0; i < t.length; i++) {
+    code ^= t.charCodeAt(i); // t の各文字の文字コードと XOR
+}
 
-    for (const [key, value] of tChars) {
-        if (value === false) {
-            return key
-        }
-    }
-    return ""
+return String.fromCharCode(code); // 最後に残った1文字を戻す
+
 }
