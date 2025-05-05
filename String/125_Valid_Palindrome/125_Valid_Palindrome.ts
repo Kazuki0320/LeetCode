@@ -16,10 +16,10 @@ function isPalindrome(s: string): boolean {
 
         if (!sanitizeString(currentFirst)) {
             start++    
-        } else if (!changeStr(currentLast)) {
+        } else if (!sanitizeString(currentLast)) {
             last--
         } else {
-            if (sanitizeString(currentFirst) != changeStr(currentLast)) {
+            if (sanitizeString(currentFirst) != sanitizeString(currentLast)) {
                 return false
             }
             start++
