@@ -15,7 +15,7 @@ describe('twoSum', () => {
 		expect(result).toEqual([])
  	})
 
-	test.only('基本的なケース2', () => {
+	test('基本的なケース2', () => {
 		const nums = [3,2,4];
 		const target = 6;
 		const result = twoSum(nums, target);
