@@ -1,5 +1,4 @@
 function twoSum(nums: number[], target: number): number[] {
-    const arr: number[] = [];
     const arrLen = nums.length;
     for (let i = 0; i < arrLen; i++) {
         for (let j = arrLen-1; j > 0; j--) {
@@ -7,13 +6,11 @@ function twoSum(nums: number[], target: number): number[] {
             let sum = 0;
             sum = nums[i] + nums[j];
             if (target === sum) {
-                arr.push(i);
-                arr.push(j);
-                return arr;
+                return [i, j];
             }
         }
     }
-    return arr;
+    return [];
 };
 
 /**

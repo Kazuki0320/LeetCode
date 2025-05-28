@@ -1,4 +1,4 @@
-import { twoSum } from './1_Two_Sum_ver2';
+import { twoSum } from './1_Two_Sum_ver5';
 
 describe('twoSum', () => {
 	test('基本的なケース1', () => {
