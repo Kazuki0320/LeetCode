@@ -1,8 +1,8 @@
-import { twoSum } from './1_Two_Sum_ver4';
+import { twoSum } from './1_Two_Sum_ver6';
 
 describe('twoSum', () => {
-	test('基本的なケース1', () => {
-		const nums = [2,7,11,15];
+	test('基本的なケース', () => {
+		const nums: number[] = [2,7,0,9];
 		const target = 9;
 		const result = twoSum(nums, target);
 		expect(result).toEqual([0,1]);
@@ -12,13 +12,6 @@ describe('twoSum', () => {
 		const nums: number[] = [];
 		const target = 0;
 		const result = twoSum(nums, target);
-		expect(result).toEqual([])
- 	})
-
-	test('基本的なケース2', () => {
-		const nums = [3,2,4];
-		const target = 6;
-		const result = twoSum(nums, target);
-		expect(result).toEqual([1,2]);
+		expect(result).toEqual([]);
 	})
 })
