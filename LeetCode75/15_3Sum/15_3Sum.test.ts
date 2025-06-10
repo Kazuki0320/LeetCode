@@ -1,4 +1,4 @@
-import { threeSum } from './15_3Sum';
+import { threeSum } from './15_3Sum_ver3';
 
 describe('threeSum', () => {
 	test('空の配列の場合', () => {
