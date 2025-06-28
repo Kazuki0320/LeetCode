@@ -7,8 +7,14 @@ export function twoSum(nums: number[], target: number): number[] {
 		if (map.has(complement)) {
 			return [map.get(complement)!, i];
 		} else {
-			map.set(complement, i);
+			map.set(nums[i], i);
 		}
 	}
 	return [];
 }
+
+/**
+ * コメント
+ * ・ map.set(complement, i)と書きがち
+ * →map.set(nums[i], i)とすることで、補数を検索することができる
+ */
