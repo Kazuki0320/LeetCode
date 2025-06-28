@@ -1,4 +1,4 @@
-import { isPalindrome } from "./125_Valid_Palindrome";
+import { isPalindrome } from "./125_Valid_Palindrome_ver5";
 
 describe('isPalindrome', () => {
 	test('基本的なケース', () => {
