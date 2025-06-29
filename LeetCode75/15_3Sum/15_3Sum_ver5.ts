@@ -1,34 +1,34 @@
 export function threeSum(nums: number[]): number[][] {
 	const len = nums.length;
-	const result = []; // 型定義が必要
+	const result:number[][] = [];
 
 	if (len < 3) return [];
 
 	nums.sort((a,b) => a - b);
 
 	for (let i = 0; i < len; i++) {
-		const left = nums[i] + 1;
-		const right = len - 1;
+		if (i > 0 && nums[i] === nums[i-1]) continue;
 
-		const sum = nums[i] + left + right;
-
-		if (nums[i] === nums[i]-1) continue;
+		let left = i + 1;
+		let right = len - 1;
 
 		while(left < right) {
-			if (sum === 0) { // 条件が足りない
-				result.push([nums[i], left, right]);
+			const sum = nums[i] + nums[left] + nums[right];
 
-				while (nums[i]-1 === nums[i] && nums[i] === left) left++; // 条件の誤り
-				while (nums[i] === nums[i]+1 && nums[i] === right) right--; // 条件の誤り
+			if (sum === 0) {
+				result.push([nums[i], nums[left], nums[right]]);
+
+				while (left < right && nums[left] === nums[left+1]) left++;
+				while (left < right && nums[right] === nums[right-1]) right--;
 
 				left++;
 				right--;
-			} else if () { // 条件の不足
+			} else if (sum < 0) {
 				left++;
 			} else {
 				right--;
 			}
 		}
 	}
-	return []
+	return result;
 }
