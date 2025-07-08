@@ -2,15 +2,17 @@ export function longestConsecutive(nums: number[]): number {
 	const numSet = new Set(nums);
 	let maxLength = 0;
 
-	for (const num of nums) {
+	for (const num of numSet) {
 		if (!numSet.has(num - 1)) {
-			let currentLength = 1;
+			let currentNum = num;
+			let currentStreak = 1;
 
-			for (let next = num+1; numSet.has(next); next++) {
-				currentLength++;
+			while (numSet.has(currentNum + 1)) {
+				currentNum += 1;
+				currentStreak += 1;
 			}
 
-			maxLength = Math.max(maxLength, currentLength);
+			maxLength = Math.max(maxLength, currentStreak);
 		}
 	}
 
