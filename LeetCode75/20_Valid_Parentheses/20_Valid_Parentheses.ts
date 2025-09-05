@@ -21,9 +21,6 @@ function isValid(s: string): boolean {
     return stack.length === 0;
 }
 
-const str = "[]";
-console.log(isValid(str));
-
 /**
  【実装】
  1.閉じ括弧と開き括弧のkeyとvalueを持つ変数を宣言
