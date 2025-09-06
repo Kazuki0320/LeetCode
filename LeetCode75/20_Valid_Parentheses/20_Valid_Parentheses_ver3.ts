@@ -12,9 +12,10 @@ export function isValid(s: string): boolean {
 
 	for (let char of s) {
 		if (map.has(char)) {
-			const topElement = map.get(char) ? stack.pop() : "#";
+			const needElement = map.get(char);
+			const topElement = stack.pop();
 
-			if (topElement === char) {
+			if (needElement !== topElement) {
 				return false
 			}
 		} else {
