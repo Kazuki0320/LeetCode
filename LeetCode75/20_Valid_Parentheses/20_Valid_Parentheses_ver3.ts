@@ -2,7 +2,7 @@ export function isValid(s: string): boolean {
 	const stack: string[] = [];
 	/**
 	 * なぜ、keyを閉じ括弧にしているのか？
-	 * A.閉じ括弧を見つけたときに、スタックに積んでいる開き括弧と等しいかを判定するため
+	 * A.閉じ括弧を見つけたときに、スタックに積んでいる開き括弧と対応しているかを確認したい
 	 */
 	const map = new Map<string, string>([
 		[")", "("],
