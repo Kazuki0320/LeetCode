@@ -6,11 +6,13 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
 	 * - list1とlist2を比較して、どちらが大きいかを判定
 	 * - lsit1がnullじゃない かつ list2がnullじゃない場合はループ処理
 	 */
+	// 再代入しないのでconstが適切
 	let dummy = new ListNode()
 	let current = dummy
 
 	while (list1 !== null && list2 !== null) {
-		if (list1.val < list2.val) {
+		// こうすると同値は list1 優先になり、入力順の安定性が上がります。
+		if (list1.val <= list2.val) {
 			// 小さいvalを持つlistをdummyに追加していく
 			// 2つやることがある
 			// 1.参照先を変える
