@@ -10,7 +10,7 @@
  * }
  */
 
-
+// パターンA(3ポインタ式)
 export function reverseList(head: ListNode | null): ListNode | null {
 	// 反転済みの先頭を指すポインタ。最初は何もないのでnull
 	let prev: ListNode | null = null
@@ -40,3 +40,27 @@ export function reverseList(head: ListNode | null): ListNode | null {
 	// 全て反転し終わると、prevが新しいリストになる
 	return prev
 };
+
+// パターンB(先頭挿入式)
+class ListNode {
+	val: number
+	next: ListNode | null
+	constructor(val?: number, next?: ListNode | null) {
+			this.val = (val === undefined ? 0 : val)
+			this.next = (next === undefined ? null : next)
+	}
+}
+
+function reverseList(head: ListNode | null): ListNode | null {
+const dummy = new ListNode() // dummy.next が反転済みの先頭
+while (head) {
+	const node = head          // 1個抜き取る
+	head = head.next           // 未処理側を前進
+	node.next = dummy.next     // 反転済みの先頭の前に差し込む
+	dummy.next = node
+}
+return dummy.next
+}
+
+const head = new ListNode(1, new ListNode(3, new ListNode(5)));
+console.log(reverseList(head))
