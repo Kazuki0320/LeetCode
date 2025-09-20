@@ -1,22 +1,34 @@
+// 例：[1,3,5]
 export function reverseList(head: ListNode | null): ListNode | null {
-	// 反転済みの先頭を指すポインタ
-	// 最初は何もないので、null
+	// すでに処理されたノード
+	// 最初はnull
 	let prev: ListNode | null = null
-	// これから処理する未反転側の先頭
-	// 最初は、headから始める
+	// 現在のノード
+	// 最初はhead
 	let current: ListNode | null = head
 
+	// currentの最後に到達するまでぶん回す
 	while (current !== null) {
-		// 1.退避の確保:次へ進むために、現在のnextノードを一時保存
-		const next: ListNode | null = current.next
+		// 1.最初に、current.nextをnextに退避させる
+		// currentを先頭のみにする
+		// next = 3→5→null
+		// current = 1
+		let next: ListNode | null = current.next
 
-		// 2.矢印を反転:現在ノードのnextを反転済みの先頭（prev）へ向ける
+		// 2.currentが1なので、矢印を反転
 		current.next = prev
+		// 1→null
 
-		// 3.反転済みの先頭を更新：現在ノードが反転済みの新しい先頭になる
+		// 3.反転させた先頭を更新
+		// この段階で、currentはnullを指している
 		prev = current
+		// prev:1→null
 
-		// 4.未処理側を前進：さっき退避させたnextに進む
+		// 4.未処理側のノードを現在ノードに更新
 		current = next
+		// curret:3→5→null
 	}
+
+	// 全て反転し終えたらprevが逆順となったリストになる
+	return prev
 }
