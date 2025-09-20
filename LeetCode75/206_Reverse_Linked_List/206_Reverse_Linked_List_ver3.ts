@@ -12,12 +12,12 @@ export function reverseList(head: ListNode | null): ListNode | null {
 		// 1.最初に、current.nextをnextに退避させる
 		// currentを先頭のみにする
 		// next = 3→5→null
-		// current = 1
+		// current = 1→3→5→null
 		let next: ListNode | null = current.next
 
 		// 2.currentが1なので、矢印を反転
 		current.next = prev
-		// 1→null
+		// current:1→null
 
 		// 3.反転させた先頭を更新
 		// この段階で、currentはnullを指している
