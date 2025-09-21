@@ -1,12 +1,12 @@
 export function twoSum(nums: number[], target: number): number[] {
-	let map = new Map<number, number>()
+	let numToIndex = new Map<number, number>()
 
 	for (let i = 0; i < nums.length; i++) {
 			const complement = target - nums[i]
-			if (map.has(complement)) {
-					return [map.get(complement)!, i]
+			if (numToIndex.has(complement)) {
+					return [numToIndex.get(complement) as number, i]
 			} else {
-					map.set(nums[i], i)
+					numToIndex.set(nums[i], i)
 			}
 	}
 	return []
@@ -18,17 +18,17 @@ console.log("result", twoSum(nums, target))
 
 /**
 * やること
-* - 補数を求める
-* - HashMapを使用するための変数を宣言
+* - 補数を求める(target-nums[i])
+* - 値→インデックスを保持するmapを宣言
 * - HashMapの使用
-*  - mapが補数を持っている場合
-*      - 補数である数値の要素数を返す
-*  - mapが補数を持っていない場合
-*      - mapで、値を持っている変数に追加
+*  - mapに補数が存在する場合
+*      - その補数のインデックスと現在のiを返す
+*  - mapに補数が存在しない場合
+*      - 現在の数値とインデックスをMapに登録
 * - 条件分岐による確認
-* - while文でのループ処理
+* - for文で配列を走査して処理を繰り返す
 * 
 * keyとvalueにはそれぞれ何を格納する？
-* key:値
-* value:値の要素
+* key:配列の値（nums[i])
+* value:その値が出現したインデックス
 */
