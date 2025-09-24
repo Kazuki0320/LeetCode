@@ -1,4 +1,8 @@
-function validParentheses(s: string): boolean {
+type ValidationResult2 = 
+	| { valid: true}
+  | { valid: false; message: string}
+
+function validParentheses(s: string): ValidationResult2 {
 	const map = new Map([
 		[")", "("],
 		["}", "{"],
@@ -12,12 +16,28 @@ function validParentheses(s: string): boolean {
 			const needElement = map.get(char)
 			const topElement = stack.pop()
 
-			if (needElement !== topElement) {
-				return false
+			if (!topElement) {
+				return {
+					valid: false,
+					message: `予期しない閉じ括弧`
+				}
+			}
+
+			if (needElement === undefined || needElement !== topElement) {
+				return {
+					valid: false,
+					message: `不一致`
+				}
 			}
 		} else {
 			stack.push(char)
 		}
 	}
-	return stack.length === 0;
+	if (stack.length > 0) {
+		return {
+			valid: false,
+			message: `未クローズの括弧`
+		}
+	}
+	return { valid: true};
 }
