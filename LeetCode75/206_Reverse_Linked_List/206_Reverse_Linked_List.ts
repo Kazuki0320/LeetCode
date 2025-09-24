@@ -51,16 +51,16 @@ class ListNode {
 	}
 }
 
-function reverseList(head: ListNode | null): ListNode | null {
-const dummy = new ListNode() // dummy.next が反転済みの先頭
-while (head) {
-	const node = head          // 1個抜き取る
-	head = head.next           // 未処理側を前進
-	node.next = dummy.next     // 反転済みの先頭の前に差し込む
-	dummy.next = node
-}
-return dummy.next
-}
+// function reverseList(head: ListNode | null): ListNode | null {
+// const dummy = new ListNode() // dummy.next が反転済みの先頭
+// while (head) {
+// 	const node = head          // 1個抜き取る
+// 	head = head.next           // 未処理側を前進
+// 	node.next = dummy.next     // 反転済みの先頭の前に差し込む
+// 	dummy.next = node
+// }
+// return dummy.next
+// }
 
 const head = new ListNode(1, new ListNode(3, new ListNode(5)));
 console.log(reverseList(head))
