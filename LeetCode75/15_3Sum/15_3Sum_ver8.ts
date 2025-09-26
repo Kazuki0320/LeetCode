@@ -1,5 +1,5 @@
-function threeSum(nums:number[]): number[][] {
-	const result: number[][] = []
+export function threeSum(nums:number[]): number[][] {
+	let result: number[][] = []
 	const len = nums.length
 
 	if (len < 3) return [];
@@ -9,6 +9,9 @@ function threeSum(nums:number[]): number[][] {
 		let left = i+1
 		let right = len - 1
 
+		// 現在の値と前の値が重複している場合は、cotinue
+		if (i > 0 && nums[i] === nums[i-1]) continue;
+ 
 		// Two-Pointerを利用するのに、leftからrightまでのループが抜けていた
 		while (left<right) {
 			let sum = nums[i] + nums[left] + nums[right]
@@ -16,7 +19,8 @@ function threeSum(nums:number[]): number[][] {
 				result.push([nums[i], nums[left], nums[right]])
 	
 				while (left < right && nums[left] === nums[left+1]) left++;
-				while (left < right && nums[right] === nums[right-1]) right ++
+				// rightは内側に進むようにするためマイナス
+				while (left < right && nums[right] === nums[right-1]) right --;
 	
 				left++;
 				right--;
