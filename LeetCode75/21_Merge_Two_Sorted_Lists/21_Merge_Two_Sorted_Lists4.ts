@@ -26,7 +26,6 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
 		}
 		current = current.next	
 	}
-
 	if (list1 !== null) {
 		current.next = list1
 	} else {
