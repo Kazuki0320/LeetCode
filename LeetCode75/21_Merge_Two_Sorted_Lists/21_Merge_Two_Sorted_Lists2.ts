@@ -8,7 +8,7 @@ class ListNode {
 }
 
 function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
-    const dummy = new ListNode
+    const dummy = new ListNode()
     let current = dummy
 
     while (list1 !== null && list2 !== null) {
