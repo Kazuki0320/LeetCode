@@ -7,7 +7,7 @@ class ListNode {
 	}
 }
 
-function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
+export function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
 // list1:1→3→5→null
 // list2:2→4→6→null
 const dummy = new ListNode()
