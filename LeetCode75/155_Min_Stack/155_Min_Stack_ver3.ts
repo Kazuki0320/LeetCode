@@ -1,4 +1,4 @@
-class MinStack {
+class MinStack3 {
 	private dataStack: number[] = [];
 	private minStack: number[] = [];
 

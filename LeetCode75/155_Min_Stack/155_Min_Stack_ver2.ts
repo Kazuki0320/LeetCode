@@ -1,4 +1,4 @@
-class MinStack {
+class MinStack2 {
 	private stack: {val: number; min: number; }[];
 	constructor() {
 		this.stack = []
