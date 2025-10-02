@@ -1,4 +1,4 @@
-class MinStack5 {
+export class MinStack5 {
 	/**
 	 * 目的
 	 * 各関数が呼ばれたときに、適切な値を返せること
@@ -27,4 +27,33 @@ class MinStack5 {
 	 * - getMin
 	 *  - minStackの末尾の要素を取得
 	 */
+
+	private dataStack: number[] = [];
+	private minStack: number[] = [];
+
+	constructor() {}
+
+	push(val: number): void {
+		this.dataStack.push(val);
+
+		if (this.minStack.length === 0) {
+			this.minStack.push(val);
+		} else {
+			const current = this.minStack[this.minStack.length-1];
+			this.minStack.push(Math.min(val, current));
+		}
+	}
+
+	pop(): void {
+		this.dataStack.pop();
+		this.minStack.pop();
+	}
+
+	top(): number {
+		return this.dataStack[this.dataStack.length-1];
+	}
+
+	getMin(): number {
+		return this.minStack.length === 0 ? 0 : this.minStack[this.minStack.length-1];
+	}
 }
