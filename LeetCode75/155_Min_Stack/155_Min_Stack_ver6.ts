@@ -25,4 +25,31 @@ export class MinStack6 {
 	 * これにより、O(1)で最小値を取得できる
 	 * 
 	 */
+	private minStack: number[];
+	private dataStack: number[];
+
+	constructor() {}
+	
+	push(value) {
+		this.dataStack.push(value)
+		if (this.minStack.length === 0) {
+			this.minStack.push(value)
+		} else {
+			if (this.minStack.min(this.minStack.pop(), value))
+		}
+	}
+
+	pop() {
+		this.dataStack.dalete()
+		this.minStack.delete()
+	}
+
+	top() {
+		this.dataStack.pop();
+		this.minStack.pop();
+	}
+
+	getMin(value): void {
+		return this.minStack.get(value)
+	}
 }
