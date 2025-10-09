@@ -22,4 +22,15 @@ export function reverseList(head: ListNode | null): ListNode | null {
 	 * - 追加されたノードを既に処理されたノードに更新
 	 * - currentを次のリストに進める
 	 */
+
+	let prev: ListNode | null = null;
+	let current: ListNode | null = head;
+
+	while (current !== null) {
+		let next: ListNode | null = current.next;
+		current.next = prev;
+		prev = current;
+		current = next;
+	}
+	return prev;
 }
