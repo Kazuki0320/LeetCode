@@ -3,7 +3,7 @@ function mapsAreEqual(a: Map<string, number>, b: Map<string, number>) {
 	for (let [key, val] of a) {
 		if (b.get(key) !== val) return false;
 	}
-	 return true;
+	 return true
 }
 
 function findAnagrams(s: string, p: string): number[] {
