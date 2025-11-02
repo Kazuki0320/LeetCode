@@ -40,6 +40,12 @@ tasks.withType<Test>().configureEach {
         showStackTraces = true
         showStandardStreams = true
     }
+
+    // レポート出力を無効化（HTML / JUnit XML を出力しない）
+    reports {
+        html.required.set(false)
+        junitXml.required.set(false)
+    }
 }
 
 /**
