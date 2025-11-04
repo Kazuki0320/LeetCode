@@ -18,3 +18,4 @@ class Solution1 {
 		return new int[0];
 	}
 }
+
