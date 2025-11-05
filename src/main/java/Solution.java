@@ -1,4 +1,7 @@
-class Solution {
+import java.util.HashMap;
+import java.util.Map;
+
+class Solution3 {
 	/**
 	 * スライディングウィンドウ法
 		left→部分文字列の始まる位置
@@ -14,7 +17,7 @@ class Solution {
 		6.結果を返す
 
 		1.初期化
-		 - Maps<Character, Integer> map = new HashMap<>();
+		 - Map<Character, Integer> map = new HashMap<>();
 		 - left:　現在のウィンドウの左端を示す
 		 - maxLen: 最大の部分文字列を記録する
 		   int left = 0, maxLen = 0;
@@ -37,9 +40,25 @@ class Solution {
 
 		6.結果を返す
 		 - ループが終わったらmaxLenを返す
-		 
+
 	 */
 	public int lenghtOfLongestSubstring(String s) {
+		Map<Character, Integer> map = new HashMap<>();
 
+		int left = 0, maxLen = 0;
+
+		for (var right = 0; right < s.length(); right++) {
+			char c = s.charAt(right);
+
+			if (map.containsKey(c) && left <= map.get(c)) {
+				left = map.get(c) + 1;
+			}
+
+			map.put(c, right);
+
+			maxLen = Math.max(maxLen, right-left+1);
+		}
+		return maxLen;
 	}
 }
+
