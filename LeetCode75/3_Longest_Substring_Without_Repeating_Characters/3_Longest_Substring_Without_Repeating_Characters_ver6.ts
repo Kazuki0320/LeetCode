@@ -14,25 +14,30 @@ class Solution {
 		6.結果を返す
 
 		1.初期化
-		 - maps: 各文字の最新の出現位置（index）を保持する
+		 - Maps<Character, Integer> map = new HashMap<>();
 		 - left:　現在のウィンドウの左端を示す
 		 - maxLen: 最大の部分文字列を記録する
-
-		2.ループ開始
+		   int left = 0, maxLen = 0;
+		 
+		2.ループ開始(right を0..s.length()-1で前進)
 		 - 現在の文字char = s[right]を取り出す
 		 - right: 右側に追加していく文字
-
+		   char char = s.charAt(right); // 現在の文字を取得
+		 
 		3.同じ文字列が既にウィンドウ内にある場合
-		 - map.has(char) && left <= map.get(char)
+		 - if (map.containsKey(c) && left <= map.get(c)) {
+		 		left = map.get(c) + 1; // 重複を避けるため左側を前進  
+		 }
 
 		4.現在の文字の位置をmapに登録
-		 - map.set(char, right)
+		 - map.put(char, rihgt);
 
 		5.最大長の更新
-		 - right-left+1で現在のウィンドウ長を算出
+		 - maxLen = Math.max(maxLen, right - left + 1);
 
 		6.結果を返す
 		 - ループが終わったらmaxLenを返す
+		 
 	 */
 	public int lenghtOfLongestSubstring(String s) {
 
