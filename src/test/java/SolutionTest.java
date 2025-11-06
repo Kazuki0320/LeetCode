@@ -2,6 +2,8 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 
+import twoSum.Solution1;
+
 // デフォルトパッケージの Solution1 (ver15) をそのまま参照
 class SolutionTest {
 
