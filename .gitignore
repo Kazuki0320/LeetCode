@@ -7,11 +7,34 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Gradle
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+
 # IDE
 .idea/
 .vscode/
 *.swp
 *.swo
+
+# IDE - Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# IDE - IntelliJ
+*.iml
+*.ipr
+*.iws
+out/
 
 # OS
 .DS_Store
@@ -20,6 +43,7 @@ Thumbs.db
 # Build
 dist/
 build/
+target/
 
 # Coverage
 coverage/
