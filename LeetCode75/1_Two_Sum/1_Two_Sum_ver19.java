@@ -1,9 +1,7 @@
-package twoSum;
-
 import java.util.HashMap;
 import java.util.Map;
 
-public class TwoSumVer18 {
+class twoSumVer19 {
 	public int[] twoSum(int[] nums, int target) {
 		Map<Integer, Integer> map = new HashMap<>();
 
@@ -14,7 +12,7 @@ public class TwoSumVer18 {
 			if (map.containsKey(comp)) {
 				return new int[] { map.get(comp), i };
 			} else {
-				map.put(nums[i], i);
+				map.put(current, i);
 			}
 		}
 		return new int[0];
