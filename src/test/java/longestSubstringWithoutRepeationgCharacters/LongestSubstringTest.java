@@ -31,12 +31,3 @@ public class LongestSubstringTest {
 		assertEquals(3, solution.lenghtOfLongestSubstring(str));
 	}
 }
-
-int[] toArray(ListNodeVer1 node) {
-	List<Integer> list = new ArrayList<>();
-	while (node != null) {
-			list.add(node.val);
-			node = node.next;
-	}
-	return list.stream().mapToInt(i -> i).toArray();
-}
