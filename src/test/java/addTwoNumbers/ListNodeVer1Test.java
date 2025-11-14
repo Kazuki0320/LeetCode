@@ -23,4 +23,14 @@ class ListNodeVer1Test {
 		ListNodeVer1 result = sol.addTwoNumbers(null, null);
 		assertArrayEquals(new int[]{}, toArray(result));
 	}
+
+	@Test
+	void addTwoNumbers_basicCase() {
+		Solution sol = new Solution();
+		ListNodeVer1 l1 = new ListNodeVer1(2, new ListNodeVer1(4, new ListNodeVer1(3)));
+		ListNodeVer1 l2 = new ListNodeVer1(5, new ListNodeVer1(6, new ListNodeVer1(4)));
+		ListNodeVer1 result = sol.addTwoNumbers(l1, l2);
+		int[] expected = new int[]{7, 0, 8};
+		assertArrayEquals(expected, toArray(result));
+	}
 }
