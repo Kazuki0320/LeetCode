@@ -23,29 +23,34 @@ public class ListNodeVer1 {
  * ListNodeVer1 currentL1 = l1;
  * ListNodeVer1 currentL2 = l2;
  */
+
 class Solution {
-	public ListNodeVer1 addTwoNumbers(ListNodeVer1 l1, ListNodeVer1 l2) {
-		ListNodeVer1 dummyHead = new ListNodeVer1(0);
-		ListNodeVer1 current = dummyHead;
-		int carry = 0;
+    public ListNodeVer1 addTwoNumbers(ListNodeVer1 l1, ListNodeVer1 l2) {
+        // ダミーノード（結果リストの先頭の一つ前）
+        ListNodeVer1 dummy = new ListNodeVer1(0);
+        ListNodeVer1 current = dummy;
 
-		// l1かl2のいずれかがnullではない、または繰り上がりがある可能性がある
-		while (l1 != null || l2 != null || carry > 0) {
-			int val1 = (l1 != null) ? l1.val : 0;
-			int val2 = (l2 != null) ? l2.val : 0;
+        ListNodeVer1 p1 = l1;
+        ListNodeVer1 p2 = l2;
+        int carry = 0;
 
-			int sum = val1 + val2 + carry;
-			carry = sum / 10;
-			int digit = sum % 10;
+        while (p1 != null || p2 != null || carry != 0) {
+            int x = (p1 != null) ? p1.val : 0;
+            int y = (p2 != null) ? p2.val : 0;
 
-			current.next = new ListNodeVer1(digit);
-			current = current.next;
+            int sum = x + y + carry;
+            carry = sum / 10;      // 繰り上がり
+            int digit = sum % 10;  // 今の桁の値
 
-			if (l1 != null) l1 = l1.next;
-			if (l2 != null) l2 = l2.next;
-		}
-		
-		return dummyHead.next;
-	}
+            current.next = new ListNodeVer1(digit);
+            current = current.next;
+
+            if (p1 != null) p1 = p1.next;
+            if (p2 != null) p2 = p2.next;
+        }
+
+        return dummy.next;
+    }
 }
+
 
